@@ -19,3 +19,11 @@ services:
     - /data/nginx/log:/var/log/nginx
     - /data/nginx/cache:/var/cache/nginx
     - /opt/site/webroot:/webroot/:ro
+
+  acmesh:
+    container_name: acmesh
+    image: neilpang/acme.sh
+    volumes:
+      - /data/acmesh/certs:/acme.sh
+    command: daemon
+    network_mode: host
