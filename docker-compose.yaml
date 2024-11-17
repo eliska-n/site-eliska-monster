@@ -1,0 +1,22 @@
+services:
+  nginx:
+    container_name: nginx
+    healthcheck:
+      interval: 60s
+      retries: 5
+      start_period: 10s
+      test:
+      - CMD
+      - service
+      - nginx
+      - status
+      timeout: 10s
+    image: library/nginx:1.25.2
+    network_mode: host
+    restart: always
+    user: 10001:10001
+    volumes:
+    - /opt/site/nginx/conf.d:/etc/nginx/conf.d:ro
+    - /data/nginx/log:/var/log/nginx
+    - /data/nginx/cache:/var/cache/nginx
+    - /opt/site/webroot:/webroot/:ro
