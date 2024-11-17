@@ -14,7 +14,6 @@ services:
     image: library/nginx:1.25.2
     network_mode: host
     restart: always
-    user: 10001:10001
     volumes:
     - /opt/site/nginx/conf.d:/etc/nginx/conf.d:ro
     - /data/nginx/log:/var/log/nginx
