@@ -27,3 +27,16 @@ services:
       - /data/acmesh/certs:/acme.sh
     command: daemon
     network_mode: host
+
+  mongo:
+    command: mongod --directoryperdb
+    container_name: mongo
+    hostname: mongo
+    image: library/mongo:7.0.1
+    logging:
+      options:
+        max-size: 10m
+    network_mode: host
+    restart: always
+    volumes:
+    - /data/mongo/data:/data/db
