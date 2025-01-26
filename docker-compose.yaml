@@ -40,6 +40,7 @@ services:
     restart: always
     volumes:
     - /data/mongo/data:/data/db
+    - /data/mongo-import:/import
 
   sklenikomil:
     image: elinit/sklenikomil:v1.0
