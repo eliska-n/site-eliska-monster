@@ -40,3 +40,10 @@ services:
     restart: always
     volumes:
     - /data/mongo/data:/data/db
+
+  sklenikomil:
+    image: elinit/sklenikomil:v1.0
+    container_name: sklenikomil
+    network_mode: host
+    volumes:
+    - /opt/site/sklenikomil/conf:/conf:ro
